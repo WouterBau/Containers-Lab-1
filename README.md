@@ -5,4 +5,4 @@
 5. Looked into kuberneters on docker desktop, enabled the functionality
 6. Read more about docker compose, kubernetes and helm
 7. Added docker-compose.yml file while following tutorial on docker website
-8. Tried running it with `docker compose up`. Angular app works! .NET api docker file and build fails?
+8. Tried running it with `docker compose up`. Angular app works! .NET api works!
