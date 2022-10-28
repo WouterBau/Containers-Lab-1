@@ -2,9 +2,13 @@ version: "3.9"
 services:
   api:
     build: ./api/ContainerLabs1.Api
-    ports:
-      - "8000:80"
   app:
     build: ./app1
+  
+  proxy:
+    build: ./proxy
     ports:
-      - "9000:80"
+      - 9000:80
+    depends_on:
+      - api
+      - app

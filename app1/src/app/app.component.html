@@ -386,6 +386,14 @@
 
   </div>
 
+  <h2>Test 1!</h2>
+
+  <p *ngIf="!forecast">Did not load yet</p>
+
+  <ul *ngIf="forecast">
+    <li>Temperature C : {{ forecast.temperatureC }}</li>
+  </ul>
+
   <!-- Next Steps -->
   <h2>Next Steps</h2>
   <p>What do you want to do next with your app?</p>
