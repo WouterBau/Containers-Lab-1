@@ -1,7 +1,21 @@
 version: "3.9"
 services:
+  db:
+    image: mariadb:latest
+    restart: always
+    ports:
+      - 3306:3306
+    volumes:
+      - db-data:/var/lib/mysql
+    environment:
+      - MYSQL_DATABASE=test
+      - MARIADB_ROOT_PASSWORD=example
+
   api:
     build: ./api/ContainerLabs1.Api
+    depends_on:
+      - db
+
   app:
     build: ./app1
   
@@ -12,3 +26,6 @@ services:
     depends_on:
       - api
       - app
+
+volumes:
+  db-data:
