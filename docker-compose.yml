@@ -9,11 +9,19 @@ services:
       - db-data:/var/lib/mysql
     environment:
       - MARIADB_ALLOW_EMPTY_ROOT_PASSWORD=yes
+    healthcheck:
+      test: ['CMD-SHELL', 'mysqladmin ping -h 127.0.0.1 --silent']
+      interval: 3s
+      retries: 5
+      start_period: 30s
 
   api:
     build: ./api/ContainerLabs1.Api
     depends_on:
-      - db
+      db:
+        condition: service_healthy
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
 
   app:
     build: ./app1
