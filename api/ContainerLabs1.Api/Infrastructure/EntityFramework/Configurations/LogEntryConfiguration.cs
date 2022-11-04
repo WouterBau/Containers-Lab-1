@@ -12,6 +12,6 @@ public class LogEntryConfiguration : IEntityTypeConfiguration<LogEntry>
         builder.Property(x => x.Id);
         builder.HasKey(x => x.Id);
         builder.Property(x => x.Message).HasMaxLength(500);
-        builder.Property(x => x.CreationDateTime).HasDefaultValue(DateTime.UtcNow);
+        builder.Property(x => x.CreationDateTime);
     }
 }

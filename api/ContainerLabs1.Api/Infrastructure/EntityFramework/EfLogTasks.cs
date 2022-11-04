@@ -15,7 +15,8 @@ public class EfLogTasks : ILogTasks
     public async Task AddLogEntry(string message)
     {
         var logEntry = new LogEntry{
-            Message = message
+            Message = message,
+            CreationDateTime = DateTime.UtcNow
         };
         await _context.LogEntries.AddAsync(logEntry);
         await _context.SaveChangesAsync();
