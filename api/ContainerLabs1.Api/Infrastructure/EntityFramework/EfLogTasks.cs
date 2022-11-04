@@ -12,14 +12,19 @@ public class EfLogTasks : ILogTasks
         _context = context;
     }
 
-    public async Task AddLogEntry(LogEntry logEntry)
+    public async Task AddLogEntry(string message)
     {
-        _context.LogEntries.Add(logEntry);
+        var logEntry = new LogEntry{
+            Message = message
+        };
+        await _context.LogEntries.AddAsync(logEntry);
         await _context.SaveChangesAsync();
     }
 
-    public LogEntry GetLastLogEntry()
+    public LogEntry? GetLastLogEntry()
     {
-        throw new NotImplementedException();
+        return _context.LogEntries
+            .OrderByDescending(x => x.CreationDateTime)
+            .FirstOrDefault();
     }
 }

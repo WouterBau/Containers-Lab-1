@@ -1,3 +1,4 @@
+using ContainerLabs1.Api.Domain;
 using ContainerLabs1.Infrastructure.EntityFramework;
 using Microsoft.EntityFrameworkCore;
 
@@ -9,6 +10,8 @@ var serverVersion = ServerVersion.AutoDetect(connectionString);
 builder.Services.AddDbContext<ApiDbContext>(options =>
  options.UseMySql(connectionString, serverVersion)
 );
+
+builder.Services.AddTransient<ILogTasks, EfLogTasks>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

@@ -3,4 +3,5 @@ export interface WeatherForecast {
     temperatureC: Number;
     temperatureF: Number;
     summary: string | null;
+    lastMessage: string | null;
 }

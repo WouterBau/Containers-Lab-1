@@ -4,6 +4,6 @@ namespace ContainerLabs1.Api.Domain;
 
 public interface ILogTasks
 {
-    Task AddLogEntry(LogEntry logEntry);
-    LogEntry GetLastLogEntry();
+    Task AddLogEntry(string message);
+    LogEntry? GetLastLogEntry();
 }
