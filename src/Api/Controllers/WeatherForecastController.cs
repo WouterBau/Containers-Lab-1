@@ -1,7 +1,7 @@
-using ContainerLabs1.Api.Domain;
+using Api.Domain;
 using Microsoft.AspNetCore.Mvc;
 
-namespace ContainerLabs1.Api.Controllers;
+namespace Api.Controllers;
 
 [ApiController]
 [Route("[controller]")]

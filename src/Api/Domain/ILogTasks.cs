@@ -1,6 +1,6 @@
-using ContainerLabs1.Api.Models;
+using Api.Models;
 
-namespace ContainerLabs1.Api.Domain;
+namespace Api.Domain;
 
 public interface ILogTasks
 {

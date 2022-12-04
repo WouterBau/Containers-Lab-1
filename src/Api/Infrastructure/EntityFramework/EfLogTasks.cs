@@ -1,7 +1,7 @@
-using ContainerLabs1.Api.Domain;
-using ContainerLabs1.Api.Models;
+using Api.Domain;
+using Api.Models;
 
-namespace ContainerLabs1.Infrastructure.EntityFramework;
+namespace Api.Infrastructure.EntityFramework;
 
 public class EfLogTasks : ILogTasks
 {
@@ -14,7 +14,8 @@ public class EfLogTasks : ILogTasks
 
     public async Task AddLogEntry(string message)
     {
-        var logEntry = new LogEntry{
+        var logEntry = new LogEntry
+        {
             Message = message,
             CreationDateTime = DateTime.UtcNow
         };

@@ -1,5 +1,5 @@
-using ContainerLabs1.Api.Domain;
-using ContainerLabs1.Infrastructure.EntityFramework;
+using Api.Domain;
+using Api.Infrastructure.EntityFramework;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);

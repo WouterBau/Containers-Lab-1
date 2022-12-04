@@ -1,4 +1,4 @@
-namespace ContainerLabs1.Api.Models;
+namespace Api.Models;
 
 public class LogEntry
 {

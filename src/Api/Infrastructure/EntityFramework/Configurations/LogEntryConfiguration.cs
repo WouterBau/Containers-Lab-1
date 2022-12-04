@@ -1,8 +1,8 @@
-using ContainerLabs1.Api.Models;
+using Api.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace ContainerLabs1.Infrastructure.EntityFramework.Configurations;
+namespace Api.Infrastructure.EntityFramework.Configurations;
 
 public class LogEntryConfiguration : IEntityTypeConfiguration<LogEntry>
 {
