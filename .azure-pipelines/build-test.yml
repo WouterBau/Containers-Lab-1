@@ -1,0 +1,23 @@
+trigger:
+- main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- script: |
+    docker build -f ./Dockerfile --target test -t . solution:$(build.buildid)
+    docker create -ti --name tempcontainer solution:$(build.buildid) 
+    docker cp tempcontainer:/*/TestResults/* $(Build.ArtifactStagingDirectory)/testresults
+    docker rm -fv tempcontainer
+
+- task: PublishTestResults@2
+  inputs:
+    testResultsFormat: XUnit
+    testResultsFiles:
+    SearchFolder: $(Build.ArtifactStagingDirectory)/testresults
+
+- task: PublishCodeCoverageResults@1
+  inputs:
+    codeCoverageTool: 'Cobertura'
+    summaryFileLocation: '$(Agent.TempDirectory)/coveragereport/Cobertura.xml'
