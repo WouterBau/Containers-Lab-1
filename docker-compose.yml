@@ -1,7 +1,7 @@
 version: "3.9"
 services:
   db:
-    build: ./mariadb
+    build: ./src/MariaDb
     restart: always
     ports:
       - 3306:3306
@@ -32,7 +32,7 @@ services:
       retries: 3
 
   api:
-    build: ./api/ContainerLabs1.Api
+    build: ./src/Api
     depends_on:
       db:
         condition: service_healthy
@@ -40,10 +40,10 @@ services:
       - ASPNETCORE_ENVIRONMENT=Development
 
   app:
-    build: ./app1
+    build: ./src/App1
   
   proxy:
-    build: ./proxy
+    build: ./src/Proxy
     ports:
       - 9002:80
       - 9000:9000
